@@ -1,0 +1,43 @@
+---
+name: home
+url: /
+controller: CountryCtrl
+---
+
+<div class="grid-container">
+  <h1>Welcome to Foundation for Apps!</h1>
+
+	<table>
+		<tr>
+			<th>Country</th>
+			<th>Address</th>
+			<th>City</th>
+			<th>Postal Code</th>
+		</tr>
+
+		<tr ng-repeat="countries in countries | orderBy: ['country','city'] ">
+			<td>{{countries.country}}</td>
+			<td>{{countries.address}}</td>
+			<td>{{countries.city}}</td>
+			<td>{{countries.postalCode}}</td>
+			<td>
+				<a class="dark button" href="#modal{{$index}}" id="mapLink-{{$index}}" zf-open="modal{{$index}}">Map location</a>
+				<div zf-modal="" id="modal{{$index}}" class="collapse">
+					<div class="grid-block vertical">
+						<div class="primary title-bar">
+							<div class="center title">{{countries.city}}</div>
+							<span zf-close="modal{{$index}}" class="right"><a>Close</a></span>
+						</div>
+						<div class="grid-content padding" style="padding-top: 1rem;">
+							<iframe ng-src="{{countries.url}}" style="border:0;" scrolling="no" frameborder="0" height="400px" width="560px"></iframe>
+							<h4>Address</h4>
+							<p>{{countries.address}}</p>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+
+	</table>
+
+</div>
