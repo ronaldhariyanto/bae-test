@@ -1,2 +1,21 @@
 @import "settings";
 @import "foundation";
+
+iframe {
+	border: none;
+	padding-top: 20px;
+}
+
+.table {
+
+	tr {
+		> th {
+		    border-bottom: 2px solid #ddd;
+		}
+		> th,
+		> td {
+		    vertical-align: bottom;
+		    padding: 8px;
+		}
+	}
+}

@@ -5,14 +5,15 @@ controller: CountryCtrl
 ---
 
 <div class="grid-container">
-  <h1>Welcome to Foundation for Apps!</h1>
+  <h1>BAE systems :: Front-end test</h1>
 
-	<table>
+	<table class="table">
 		<tr>
 			<th>Country</th>
 			<th>Address</th>
 			<th>City</th>
 			<th>Postal Code</th>
+			<th>Location</th>
 		</tr>
 
 		<tr ng-repeat="countries in countries | orderBy: ['country','city'] ">
@@ -21,17 +22,17 @@ controller: CountryCtrl
 			<td>{{countries.city}}</td>
 			<td>{{countries.postalCode}}</td>
 			<td>
-				<a class="dark button" href="#modal{{$index}}" id="mapLink-{{$index}}" zf-open="modal{{$index}}">Map location</a>
+				<a class="button hollow small" href="#modal{{$index}}" id="mapLink-{{$index}}" zf-open="modal{{$index}}">Map location</a>
 				<div zf-modal="" id="modal{{$index}}" class="collapse">
 					<div class="grid-block vertical">
-						<div class="primary title-bar">
+						<div class="title-bar">
 							<div class="center title">{{countries.city}}</div>
-							<span zf-close="modal{{$index}}" class="right"><a>Close</a></span>
+							<span zf-close="modal{{$index}}" class="right"><a class="close-button">×</a></span>
 						</div>
-						<div class="grid-content padding" style="padding-top: 1rem;">
-							<iframe ng-src="{{countries.url}}" style="border:0;" scrolling="no" frameborder="0" height="400px" width="560px"></iframe>
+						<div class="grid-content padding">
+							<iframe ng-src="{{countries.url}}" scrolling="no" frameborder="0" height="400px" width="560px"></iframe>
 							<h4>Address</h4>
-							<p>{{countries.address}}</p>
+							<p>{{countries.address}}<br>{{countries.city}}<br>{{countries.postalCode}}</p>
 						</div>
 					</div>
 				</div>
