@@ -1,0 +1,37 @@
+
+<div class="grid-container">
+
+  <h1 class="heroTitle">BAE systems :: Front-end test</h1>
+
+	<div class="tableLoc">
+		<ul class="tableLoc-header">
+			<li>Country</li>
+			<li>Address</li>
+			<li>City</li>
+			<li>Postal Code</li>
+			<li>Location</li>
+		</ul>
+
+		<ul class="tableLoc-main" ng-repeat="countries in countries | orderBy: ['country','city'] ">
+			<li>{{countries.country}}</li>
+			<li>{{countries.address}}</li>
+			<li>{{countries.city}}</li>
+			<li>{{countries.postalCode}}</li>
+			<li>
+				<a class="warning button expand" href="#modal{{$index}}" id="mapLink-{{$index}}" zf-open="modal{{$index}}">Map</a>
+				<div zf-modal="" id="modal{{$index}}" class="collapse">
+					<div class="grid-block vertical">
+						<div class="dark title-bar">
+							<div class="center title">{{countries.city}}</div>
+							<span zf-close="modal{{$index}}" class="right"><a class="close-button">×</a></span>
+						</div>
+						<div class="grid-content padding">
+							<iframe ng-src="{{countries.url}}" scrolling="no" frameborder="0" height="400px" width="560px"></iframe>
+							<p>{{countries.address}}<br>{{countries.city}}<br>{{countries.postalCode}}</p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
