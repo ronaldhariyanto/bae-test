@@ -1,3 +1,14 @@
+# BAE Front-end Test
+
+This single application build base on foundation Apps with angular.js v.1.4.
+
+## The Flow
+
+- Get data from json files.
+- Wraping data with angular scope.
+- Inject new variabel to object (for URL).
+- Showing data with modal for map location.
+
 # Foundation for Apps Template
 
 [![devDependency Status](https://david-dm.org/zurb/foundation-apps-template/dev-status.svg)](https://david-dm.org/zurb/foundation-apps-template#info=devDependencies)
